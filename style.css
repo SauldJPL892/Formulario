@@ -22,6 +22,7 @@ table {
 }
 th{
 	color: rgb(43, 39, 39);
+	
 }
 Hamburgesa{
 	color: orange;
@@ -62,6 +63,11 @@ th{
 tr:nth-child(even){
 	background-color: black;
 }
+th, td {
+    border: 1px solid white; /* Borde de 1 píxel sólido blanco */
+    padding: 8px; /* Espaciado interno de las celdas */
+    text-align: left; /* Alineación del contenido de las celdas (izquierda) */
+  }
 img{
 	width: 100px;
 	height: 100px;
