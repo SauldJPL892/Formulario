@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<title>Formulario</title>
+</head>
+<style>
+ .center{
+ 	display: block;
+ 	margin: auto;
+ 	margin-left: auto;
+ 	width: 50%;
+    width: 500px;
+}
+titulo{
+	font-family: "Gunmetal", sans-serif;
+	font-size: 40px;
+	text-align: center;
+}
+table {
+	margin-left: 200px;
+	background-color: black;
+	text-align: center;
+	color: white;
+	width: 700px;
+}
+th{
+	color: black;
+}
+Hamburgesa{
+	color: orange;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+	color: rgb(59, 105, 255);
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-weight: bold;
+}
+p{
+	color: rgb(77, 133, 114);
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+ul.sangria{
+	text-indent: 480px;
+	size: 800px;
+}
+a{
+	font-weight: bold;
+	color: rgba(255, 255, 255, 0.555);
+}
+p.TTT{
+	color: rgb(17, 94, 1);
+}
+body{
+	background-image: linear-gradient(to right, rgb(255, 234, 0), rgb(171, 111, 0),rgb(108, 0, 0), rgb(0, 0, 0));
+}
+</style>
+<body>
+	<div style="margin: 24px;">
+		<nav class="navbar navbar-light" style="background-color: rgb(3, 3, 32);">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li class="active"> 
+					<a href="index.html">Inicio</a>
+					</li>
+					<li> 
+					<a href="menu.html">Menu</a>
+					</li>
+					<li>
+					<a href="formulario.html">Formulario</a>
+					</li>
+					<li>
+					<a href="resultado.html">Resultado</a>
+					</li>
+					<li>
+					<a href="contacto.html">Contacto</a>
+					</li>
+                    <li>
+                    <a href="apimovie.html">Peliculas</a>
+                    </li>
+                    <li>
+                    <a href="calculadorafisica.html">Fisica</a>
+                    </li>
+                    <li>
+                    <a href="calculadora.html">Calculadora</a>
+                    </li>
+				    <li>
+					<a href="perfil.html">Perfil</a>
+				    </li>
+				    <li>
+					<a href="cuestionario.html">Cuestionario</a>
+				    </li>
+                </ul>
+			</div>
+		</nav>
+	</div>
+	<h1>Formulario</h1>
+
+<form id="pedido">
+       <p>Nombre: <Input type ="text" name="nombre" id="nombre" size="40">
+       </p>
+       <p>Apellido: <Input type ="text" name="apellido" id="apellido" size="40">
+       </p>
+       <p>Direccion: <Input type ="text" name="direccion" id="direccion" size="35">
+       </p>
+       <p>Colonia: <Input type ="text" name="colonia" id="colonia" size="40">
+       </p>
+       <p>Telefono: <Input type ="text" name="telefono" id="telefono" size="40">
+       </p>
+       <p>Servilletas:
+        <input type="radio" name="servilletas" value="si"><azul>Si</azul>
+        <input type="radio" name="servilletas" value="no"><azul>No</azul>
+       	<p> Que vas a pedir:
+       		<select name="menu" id="menu">
+       			<optgroup label="Lonches">
+       			<option value="hamburgesa">Hamburgesa</option>
+       			<option value="tacos">Tacos</option>
+       			<option value="papas fritas">Papas Fritas</option>
+       			<option value="sincronisadas">Sincronisadas</option>
+       			<option value="hot dogs">Hot dogs</option>
+       			<option value="tortas">Tortas</option>
+       			<option value="papas rellenas">Papas Rellenas</option>
+       			<option value="nuggets">Nuggets</option>
+       			<option value="pizza">Pizza</option>
+       			<option value="pollo">Pollo</option>
+       			</optgroup>
+       		</select>
+       		<hr>
+       		<h1 style="color: rgb(1, 1, 26);font-weight:bold;">Complementos</h1>
+       		<input type="checkbox" id="tomate" checked><label for="tomate" style="font-size: 20px;color: rgb(56, 119, 190);">Tomate</label><br>
+       		<input type="checkbox" id="cebolla" checked><label for="cebolla" style="font-size: 20px;color: rgb(56, 119, 190);">Cebolla</label><br>
+            <input type="checkbox" id="pepinillos" checked><label for="pepinillos" style="font-size: 20px;color: rgb(56, 119, 190);">Pepinillos</label><br>
+            <input type="checkbox" id="pina" checked><label for="pina" style="font-size: 20px;color: rgb(56, 119, 190);">Pina</label><br>
+       	</p>
+       	<input type="submit" value="Enviar">
+       	<input type="reset" value="Borrar">
+</form>
+<script type="text/javascript">
+	const form=document.getElementById("pedido");
+	form.addEventListener("submit",function(event){
+		event.preventDefault();
+		const formData=new FormData(form);
+		const orden={
+			nombre:formData.get("nombre"),
+			apellido:formData.get("apellido"),
+			telefono:formData.get("telefono"),
+			direccion:formData.get("direccion"),
+			colonia:formData.get("colonia"),
+			servilletas:formData.get("servilletas"),
+			menu:formData.get("menu"),
+			  tomate:document.getElementById("tomate").checked ? "Si":"No",
+			  cebolla:document.getElementById("cebolla").checked ? "Si":"No",
+              pepinillos:document.getElementById("pepinillos").checked ? "Si":"No",
+			  pina:document.getElementById("pina").checked ? "Si":"No"
+		};
+		localStorage.setItem("orden",JSON.stringify(orden));
+		window.location.href="pedidorealizado.html";
+	});
+</script>
+</body>
+</html>
